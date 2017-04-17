@@ -1,0 +1,91 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+    <head>
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title> Survey Conditional </title>
+        <link rel="stylesheet" href="bootstrap.css" rel="stylesheet"/>
+        <link href="style.css" type="text/css" rel="stylesheet" />
+        <link href="main.css" type="text/css" rel="stylesheet" />
+        <link href="custom-checkbox.css" type="text/css" rel="stylesheet" />
+        
+        <script type="text/javascript" src="jquery.min.js"></script>
+        
+        <script type="text/javascript" src="bootstrap.min.js" ></script>
+        
+        
+        <script src="knockout.js"></script>
+        <script src="https://surveyjs.azureedge.net/0.12.8/survey.ko.js"></script>
+        
+        <link href="prism.css" type="text/css" rel="stylesheet" />
+        <script src="prism.js"></script>
+        
+    </head>
+    
+    <body class="white-bg">
+		<nav class="navbar navbar-default survey-gray survey-navbar">
+		    <div class="container-fluid">
+		        <div class="navbar-header">
+		            <a class="version-link" href="/index.html">GC Survey</a>
+		            <!--<a class="version-link" role="button" href="https://github.com/surveyjs/surveyjs/releases" target="_blank">
+		                Rodrigo Leal
+		            </a> -->
+		        </div>
+		    </div>
+		</nav>
+
+        <div class="maincontent">
+        
+        	<script src="ace.min.js" type="text/javascript" charset="utf-8"></script> 
+			<script src="worker-json.js" type="text/javascript" charset="utf-8"></script> 
+			<script src="mode-json.js" type="text/javascript" charset="utf-8"></script> 
+			<link href="select2.min.css" rel="stylesheet" />
+			<script src="select2.min.js"></script>
+			<link href="https://surveyjs.azureedge.net/0.12.8/surveyeditor.css" type="text/css" rel="stylesheet" />
+			<link href="custom-surveyeditor.css" type="text/css" rel="stylesheet" />
+			<script src="surveyeditor.js"></script>
+
+			<div id="editor" class="survey-editor"></div>
+
+			<script>
+			    
+			    function getParameterByName(name, url) {
+			        if (!url) url = window.location.href;
+			        url = url.toLowerCase(); // This is just to avoid case sensitiveness  
+			        name = name.replace(/[\[\]]/g, "\\$&");
+			        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+			            results = regex.exec(url);
+			        if (!results) return null;
+			        if (!results[2]) return '';
+			        return decodeURIComponent(results[2].replace(/\+/g, " "));
+			    }
+
+			    var editor = new SurveyEditor.SurveyEditor("editor", {showEmbededSurveyTab: true, showOptions: true});
+
+			    var surveyId = getParameterByName("surveyid");
+
+			    if(surveyId) {
+			        editor.loadSurvey(surveyId);
+			    }
+
+			</script>
+
+        </div>
+        
+        <script type="text/javascript">               
+            // Analytics
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-74958675-1']);
+            _gaq.push(['_trackPageview']);	
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();             
+        </script>
+    
+    </body>
+
+</html>
